@@ -127,8 +127,10 @@ bool CalibratorUsbtouchscreen::finish_data(const XYinfo &new_axys)
     }
     fclose(fid);
 
-    char *new_opt = new char[opt_len];
-    sprintf(new_opt, "%s %s=%d %s=%d %s=%d %s=%d %s=%d %s=%d %s=%c %s=%c %s=%c %s=%c\n",
+    // gcc checked that the snprintf results is less than 200 chars
+    char new_opt[200];
+    snprintf(new_opt, 200,
+         "%s %s=%d %s=%d %s=%d %s=%d %s=%d %s=%d %s=%c %s=%c %s=%c %s=%c\n",
          opt, p_range_x, range_x, p_range_y, range_y,
          p_min_x, new_axys.x.min, p_min_y, new_axys.y.min,
          p_max_x, new_axys.x.max, p_max_y, new_axys.y.max,
