@@ -33,19 +33,19 @@ void get_display_texts(std::list<std::string> *texts, Calibrator *calibrator)
         str += " for '";
         str += sysfs_name;
         str += "'";
-	}
-	texts->push_back(str);
+    }
+    texts->push_back(str);
     /* 2nd line */
     str = "Press the point, use a stylus to increase precision.";
-	texts->push_back(str);
+    texts->push_back(str);
     /* 3rd line */
     str = "";
-	texts->push_back(str);
+    texts->push_back(str);
     /* 4th line */
     str = "(To abort, press any key";
     if(calibrator->get_use_timeout())
         str += " or wait)";
     else
         str += ")";
-	texts->push_back(str);
+    texts->push_back(str);
 }
