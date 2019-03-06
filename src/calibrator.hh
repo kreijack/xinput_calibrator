@@ -261,6 +261,8 @@ public:
     virtual bool add_click(int x, int y) = 0;
     /// calculate and apply the calibration
     virtual bool finish(int width, int height) = 0;
+
+    virtual ~CalibratorTesterInterface() {}
 };
 
 #endif
