@@ -58,7 +58,6 @@ int main() {
     raw_coords.push_back( XYinfo(883, 233, 105, 783) );
     raw_coords.push_back( XYinfo(883, 233, 783, 105) );
 
-    CalibratorTesterInterface* calib;
     for (unsigned t=0; t<=1; t++) {
         if (t == 0)
             printf("CalibratorTester\n");
@@ -70,6 +69,7 @@ int main() {
         printf("Old axis: "); old_axis.print();
 
     for (unsigned c=0; c != raw_coords.size(); c++) {
+        CalibratorTesterInterface* calib;
         XYinfo raw(raw_coords[c]);
         //printf("Raw: "); raw.print();
 
@@ -110,6 +110,8 @@ int main() {
         }
 
         printf("%i", maxdiff);
+
+        delete calib;
     } // loop over raw_coords
 
         printf(". OK\n");
@@ -117,6 +119,4 @@ int main() {
 
         printf("\n");
     } // loop over calibrators
-
-    delete calib;
 }
