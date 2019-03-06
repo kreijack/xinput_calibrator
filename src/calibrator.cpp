@@ -213,7 +213,8 @@ bool Calibrator::is_sysfs_name(const char* name) {
         if (strncmp(ep->d_name, "event", strlen("event")) == 0) {
             // got event name, get its sysfs device name
             char filename[40]; // actually 35, but hey...
-            (void) sprintf(filename, "%s/%s/%s", SYSFS_INPUT, ep->d_name, SYSFS_DEVNAME);
+            (void) snprintf(filename, 40, "%s/%s/%s",
+                SYSFS_INPUT, ep->d_name, SYSFS_DEVNAME);
 
             std::ifstream ifile(filename);
             if (ifile.is_open()) {
