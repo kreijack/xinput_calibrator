@@ -46,7 +46,7 @@ endif
 if BUILD_GTKMM
 xinput_calibrator_SOURCES = gui/gtkmm.cpp main_gtkmm.cpp $(COMMON_SRCS)
 xinput_calibrator_LDADD = $(XINPUT_LIBS) $(GTKMM_LIBS)
-xinput_calibrator_CXXFLAGS = $(XINPUT_CFLAGS) $(GTKMM_CFLAGS) $(AM_CXXFLAGS)
+xinput_calibrator_CXXFLAGS = $(XINPUT_CFLAGS) $(GTKMM_CFLAGS) $(AM_CXXFLAGS) -std=c++11
 
 # only include the needed gtkmm stuff
 # lets hope this has no side-effects
